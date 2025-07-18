@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
@@ -12,7 +13,7 @@ import { CommonModule } from '@angular/common';
 export class ContactComponent {
   contactForm: any;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.contactForm = this.fb.group({
@@ -24,9 +25,18 @@ export class ContactComponent {
 
   onSubmit() {
     if (this.contactForm.valid) {
-      console.log('Form Submitted!', this.contactForm.value);
-      // Here you would typically send the form data to a server
-      this.contactForm.reset();
+      console.log('Submitting form with value:', this.contactForm.value);
+      this.http.post('/api/contact', this.contactForm.value).subscribe(
+        (response) => {
+          console.log('API Response:', response);
+          alert('Your message has been sent successfully!');
+          this.contactForm.reset();
+        },
+        (error) => {
+          console.error('API Error:', error);
+          alert('An error occurred. Please try again later.');
+        }
+      );
     }
   }
 }
