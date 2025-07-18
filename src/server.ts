@@ -4,7 +4,7 @@ import express from 'express';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import bootstrap from './main.server';
-import contactHandler from '../api/contact';
+// import contactHandler from '../api/contact';
 
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
@@ -15,10 +15,7 @@ const commonEngine = new CommonEngine();
 
 app.use(express.json());
 
-app.post('/api/contact', (req, res) => {
-  console.log('Received request on /api/contact');
-  contactHandler(req, res);
-});
+
 
 /**
  * Example Express Rest API endpoints can be defined here.
