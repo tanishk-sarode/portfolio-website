@@ -1,0 +1,17 @@
+.connect-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 1rem 2rem;
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-weight: 700;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}

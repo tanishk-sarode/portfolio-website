@@ -1,0 +1,11 @@
+<section id="projects" class="projects-section">
+  <div class="projects-content">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card" *ngFor="let project of projects">
+        <h3 class="project-title">{{ project.title }}</h3>
+        <p class="project-role">{{ project.role }}</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,46 @@
+.projects-section {
+  padding: 6rem 2rem;
+}
+
+.projects-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 4rem;
+  font-family: var(--font-mono);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background-color: var(--secondary-color);
+  padding: 2rem;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--accent-color);
+}
+
+.project-role {
+  font-size: 1rem;
+  color: var(--text-color);
+}

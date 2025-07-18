@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+  --primary-color: #1a202c; /* slate-800 */
+  --secondary-color: #2d3748; /* slate-700 */
+  --accent-color: #4fd1c5; /* teal-400 */
+  --text-color: #e2e8f0; /* slate-200 */
+  --background-color: #0f172a; /* slate-900 */
+
+  --font-primary: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-primary);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #81e6d9; /* teal-200 */
+}
