@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, Renderer2, ElementRef, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-hero',
-  imports: [],
   templateUrl: './hero.component.html',
-  styleUrl: './hero.component.scss'
+  styleUrls: ['./hero.component.scss']
 })
 export class HeroComponent {
+  gridCells = Array(100);
 
 }

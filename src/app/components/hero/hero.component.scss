@@ -1,49 +1,228 @@
-.hero-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  text-align: center;
-  padding: 0 2rem;
-}
+@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
 
-.hero-content {
-  max-width: 800px;
-}
+.hero-container {
+  // padding-top: 10vh;
+  background: #fff;
+  height: 200vh;
+  view-timeline-name: --hero-scroll;
+  view-timeline-axis: block;
 
-.hero-name {
-  font-size: 4rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  font-family: var(--font-mono);
-}
+  .container,
+  .hero {
+    background: #fff;
+    justify-content: center;
+    animation: move 3s;
+    &.move{
+      display: flex;
+    }
 
-.hero-tagline {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  color: var(--text-color);
-}
+    h1{
+      font-family: "tenor-sans";
+      color: #000;
+    }
+    p {
+      color: #000;
+    }
+    .left{
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      animation: move;
+      &.move{
+        height: 100vh;
+        width: 40vw;
+        flex-direction: column;
+      }
 
-.btn-resume {
-  padding: 1rem 2rem;
-  background-color: var(--accent-color);
-  color: var(--primary-color);
-  border-radius: 5px;
-  text-transform: uppercase;
-  font-weight: 700;
-  transition: background-color 0.3s ease;
+        .image-wrapper {
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            width: 50vw;
+            max-width: 50vw;
+            justify-content: center;
+            align-items: center;
+            position: relative;
 
-  &:hover {
-    background-color: #81e6d9; /* teal-200 */
+            &.move {
+              overflow: visible;
+              width: 40vw;
+              max-width: 40vw;
+            }
+
+            .image-container {
+              overflow: hidden; // ensures cropped image
+              width: 100%;
+              height: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              img {
+                width: 50vw;
+                height: 60vh;
+                object-fit: cover;
+                max-width: none;
+                transform: scale(1.2) translate(0, -3vh); // zoom + slight up
+                max-width: 50vw;
+                max-height: 50vh;
+              }
+            }
+          }
+
+
+        .intro {
+            width: 50vw;
+            height: 100%; // or set a fixed height like 50vh if needed
+            display: flex;
+            flex-direction: column;
+            justify-content: center; // vertical centering
+            align-items: center;     // horizontal centering
+
+            &.move{
+              width: 40vw;
+              margin-left: 5vw;
+              align-items: start;  
+            }
+            .name {
+              font-family: 'Tenor Sans', sans-serif;
+              font-size: 3.5vw;
+              margin: 7vh 0;
+              margin-top: -5vh;
+            }
+
+            .tagline {
+              font-size: 2vw;
+              text-align: center; // center text
+              margin: 0 0 7vh 0;
+              &.move{
+                text-align: start
+              }
+            }
+
+            .email-btn {
+              background: #000;
+              color: #fff;
+              padding: 1vh 2vw;
+              font-weight: bold;
+              text-align: center;
+              max-width: 15vw;
+              width: 50%;
+            }
+          }
+
+        
+    }
+    
+
+    .right{
+      display: none;
+      background-color: #b4d7ff;
+      height: 100vh;
+      width: 60vw;
+      
+      justify-content: center;
+      align-items: center;
+
+      &.move{
+        display: flex;
+      }
+      .about {
+        width: 40vw;
+        .about-me {
+          hr{
+            width: 40vw;
+            height: 0.5vh;
+            background-color: #000;
+          }
+        }
+
+        h1 {
+          font-size: 5vh;
+          margin-top: 0vh;
+          background-color: #b4d7ff;
+          // padding: 15vh 10vh 0vh 10vh;
+        }
+
+        p {
+          font-size: 1rem;
+          line-height: 1.6;
+        }
+      }
+    
   }
+
+  }
+
+
+}
+
+.spacer {
+  height: 100vh;
 }
 
 @media (max-width: 768px) {
-  .hero-name {
-    font-size: 3rem;
+  .hero-container .name {
+    font-size: 6vw;
   }
 
-  .hero-tagline {
-    font-size: 1.2rem;
+  .hero-container .tagline {
+    font-size: 4vw;
+  }
+
+  .hero-container .email-btn {
+    width: 70%;
   }
 }
+
+
+// .vertical-scan {
+//   position: fixed;
+//   // top: -100vh;         // start fully off-screen
+//   left: 41%;           // center horizontally
+//   transform: translateX(-50%);
+//   width: 4px;          // thin line
+//   height: 100vh;
+//   background: limegreen;
+//   box-shadow: 0 0 20px 5px limegreen;  // glowing effect
+//   z-index: 9999;
+//   animation: scanY 1.2s ease-out forwards;
+// }
+// .grid-overlay {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100vw;
+//   height: 100vh;
+//   z-index: 9999;
+//   pointer-events: none;
+// }
+
+// .grid-overlay::before,
+// .grid-overlay::after {
+//   content: '';
+//   position: absolute;
+//   width: 100%;
+//   height: 100%;
+//   background-image:
+//     /* Vertical lines */
+//     repeating-linear-gradient(
+//       to right,
+//       rgba(0, 255, 0, 0.2),
+//       rgba(0, 255, 0, 0.2) 1px,
+//       transparent 1px,
+//       transparent 10%
+//     ),
+//     /* Horizontal lines */
+//     repeating-linear-gradient(
+//       to bottom,
+//       rgba(0, 255, 0, 0.2),
+//       rgba(0, 255, 0, 0.2) 1px,
+//       transparent 1px,
+//       transparent 10%
+//     );
+//   box-shadow: 0 0 10px 2px rgba(0, 255, 0, 0.2); // slight glow
+// }
+
+
+
